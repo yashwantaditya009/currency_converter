@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #verificationResult {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Certificate Verification</h1>
+        <p>Enter the certificate code to verify:</p>
+        <input type="text" id="certificateCode" placeholder="Enter code">
+        <button onclick="verifyCertificate()">Verify</button>
+        <div id="verificationResult"></div>
+    </div>
+    <script>
+        function verifyCertificate() {
+            const certificateCode = document.getElementById("certificateCode").value;
+
+            // Replace this with your actual verification logic (e.g., API request)
+            const isValidCertificate = validateCertificate(certificateCode);
+
+            const verificationResult = document.getElementById("verificationResult");
+
+            if (isValidCertificate) {
+                verificationResult.innerHTML = "Certificate is valid!";
+                verificationResult.style.color = "green";
+            } else {
+                verificationResult.innerHTML = "Certificate is invalid. Please check the code.";
+                verificationResult.style.color = "red";
+            }
+        }
+
+        // Replace this with your actual validation logic
+        function validateCertificate(code) {
+            // Simulate validation logic
+            // You may need to make an API request or perform database checks here
+            return code === "123456"; // Replace with your valid code
+        }
+    </script>
+</body>
+</html>
